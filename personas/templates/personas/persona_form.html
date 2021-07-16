@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Nueva Persona{% endblock title %}
+{% block body %}
+<h1>Nueva Persona</h1>
+<form method="POST"> {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Save">
+</form>
+{% endblock body %}
