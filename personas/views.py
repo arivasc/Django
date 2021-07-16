@@ -1,8 +1,10 @@
+from django.db import models
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
-from django.views.generic.list import (
+from django.views.generic import (
     ListView,
+    DetailView,
 )
 # Create your views here.
 
@@ -62,14 +64,17 @@ def personasDeleteView(request, myID):
     }
     return render(request, 'personas/personasBorrar.html', context)
 
-"""
+
 def personasListView(request):
     queryset = Persona.objects.all()
     context = {
         'objectList': queryset,
     }
-    return render(request, 'personas/personasLista.html', context) """
+    return render(request, 'personas/personasLista.html', context)
 
 class PersonaListView(ListView):
     model = Persona
-    queryset = Persona.objects.filter(edad__lte='40')
+    #queryset = Persona.objects.filter(edad__lte='40')
+
+class PersonaDetailView(DetailView):
+    model = Persona
