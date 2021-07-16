@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic.edit import UpdateView
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
 from django.views.generic import (
@@ -81,6 +82,15 @@ class PersonaDetailView(DetailView):
     model = Persona
 
 class PersonaCreateView(CreateView):
+    model = Persona
+    fields = [
+        'nombres',
+        'apellidos',
+        'edad',
+        'donador',
+    ]
+
+class PersonaUpdateView(UpdateView):
     model = Persona
     fields = [
         'nombres',
