@@ -1,6 +1,4 @@
 from django.contrib import admin
-
+from .models import Persona
 # Register your models here.
-from .models import Alumno
-
-admin.site.register(Alumno)
+admin.site.register(Persona)
