@@ -7,3 +7,7 @@ class Persona(models.Model):
     apellidos = models.CharField(max_length=128)
     edad = models.PositiveSmallIntegerField()
     donador = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return "/personas/" + str(self.id) + "/"
+    
